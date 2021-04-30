@@ -1,31 +1,29 @@
 import React from 'react';
-import { Card, CardTitle, CardBody, CardImg, CardImgOverlay } from 'reactstrap';
+import { Card, CardImg, CardImgOverlay, CardBody, CardTitle } from 'reactstrap';
+import { baseUrl } from '../../redux/baseUrl';
 
-
-const MenuItem = (props) => {
-    console.log(props);
+const MenuItem = props => {
     return (
         <div>
-            <Card style={{margin:"10px"}}>
+            <Card style={{ margin: "10px" }}>
                 <CardBody>
-                    <CardImg 
-                    width="100%" 
-                    alt={props.dish.name} 
-                    src={props.dish.image}
-                    style={
-                        {opacity: "0.6"}
-                    }
-                     />
+                    <CardImg
+                        width="100%"
+                        alt={props.dish.name}
+                        src={baseUrl + props.dish.image}
+                        style={{ opacity: "0.5" }} />
                     <CardImgOverlay>
-                        <CardTitle style={{cursor: "pointer"}} 
-                        onClick={props.DishSelect}>{props.dish.name}</CardTitle>
+                        <CardTitle
+                            style={{ cursor: "pointer" }}
+                            onClick={props.DishSelect}
+                        >
+                            {props.dish.name}
+                        </CardTitle>
                     </CardImgOverlay>
                 </CardBody>
             </Card>
         </div>
     );
 }
-
-
 
 export default MenuItem;
